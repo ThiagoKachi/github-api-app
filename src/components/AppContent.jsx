@@ -11,6 +11,7 @@ class AppContent extends React.Component {
       userInfo, 
       repos, 
       starred, 
+      isFetching,
       handleSearch, 
       handleClickRepos, 
       handleClickStarred 
@@ -18,7 +19,8 @@ class AppContent extends React.Component {
     
     return(
       <div className="app">
-        <Search handleSearch={ handleSearch } />
+        <Search isDisabled={ isFetching } handleSearch={ handleSearch } />
+        {isFetching && <div>Carregando...</div>}
         {!!userInfo && <UserInfo userInfo={ userInfo } />}
         {!!userInfo && <Actions 
           handleClickRepos={ handleClickRepos } 
