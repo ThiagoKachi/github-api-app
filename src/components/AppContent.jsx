@@ -49,6 +49,10 @@ AppContent.propTypes = {
   userInfo: PropTypes.object,
   repos: PropTypes.array.isRequired,
   starred: PropTypes.array.isRequired,
+  isFetching: PropTypes.bool.isRequired,
+  handleSearch: PropTypes.func.isRequired,
+  handleClickRepos: PropTypes.func.isRequired,
+  handleClickStarred: PropTypes.func.isRequired,
 }
 
 export default AppContent;
