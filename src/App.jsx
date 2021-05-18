@@ -10,6 +10,7 @@ class App extends React.Component {
       userInfo: null,
       repos: [],
       starred: [],
+      isFetching: false
     }
   }
 
@@ -18,7 +19,9 @@ class App extends React.Component {
     const keyCode = e.which || e.keyCode;
     const ENTER = 13;
     if (keyCode === ENTER) {
-      e.target.disabled = true;
+      this.setState({
+        isFetching: true
+      })
       axios.get(`https://api.github.com/users/${value}`)
         .then(({ data: { name, avatar_url, login, public_repos, followers, following} }) => {
           this.setState({
@@ -35,7 +38,7 @@ class App extends React.Component {
           })
         })
         .finally(() => {
-          e.target.disabled = false;
+          this.setState({ isFetching: false })
         })
     }
   }
@@ -59,6 +62,7 @@ class App extends React.Component {
         userInfo={ userInfo }
         repos={ repos }
         starred={ starred }
+        isFetching={ this.state.isFetching }
         handleSearch={ (e) => this.handleSearch(e) }
         handleClickRepos={ this.handleClickRepos('repos') }
         handleClickStarred={ this.handleClickRepos('starred') }
