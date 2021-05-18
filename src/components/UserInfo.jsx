@@ -8,7 +8,7 @@ class UserInfo extends React.Component {
       <div className="userInfo">
         <img src={ photo } alt="Thiago" />
         <h1 className="userName">
-          <a href={`https://api.github.com/users/${ login }`}>{ username }</a> 
+          <a href={`https://github.com/${ login }`}>{ username }</a> 
         </h1>
 
         <ul className="repos-info">
