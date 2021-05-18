@@ -28,15 +28,18 @@ class App extends React.Component {
               repos: public_repos,
               followers: followers,
               following: following
-            }
+            },
+            repos: [],
+            starred: [],
           })
         })
     }
   }
 
   handleClickRepos(type) {
-    return (e) => {
-      axios.get(`https://api.github.com/users/ThiagoKachi/${type}`)
+    return () => {
+      const username = this.state.userInfo.login
+      axios.get(`https://api.github.com/users/${username}/${type}`)
         .then(({ data }) => {
           this.setState({
             [type]: data
