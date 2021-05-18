@@ -7,10 +7,10 @@ import PropTypes from 'prop-types';
 
 class AppContent extends React.Component {
   render() {
-    const { userInfo, repos, starred } = this.props;
+    const { userInfo, repos, starred, handleSearch } = this.props;
     return(
       <div className="app">
-        <Search />
+        <Search handleSearch={ handleSearch } />
         {!!userInfo && <UserInfo userInfo={ userInfo } />}
         {!!userInfo && <Actions />}
         {!!repos.length && 
@@ -33,7 +33,7 @@ class AppContent extends React.Component {
 }
 
 AppContent.propTypes = {
-  userInfo: PropTypes.string.isRequired,
+  userInfo: PropTypes.object,
   repos: PropTypes.array.isRequired,
   starred: PropTypes.array.isRequired,
 }
