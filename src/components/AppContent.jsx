@@ -7,12 +7,23 @@ import PropTypes from 'prop-types';
 
 class AppContent extends React.Component {
   render() {
-    const { userInfo, repos, starred, handleSearch } = this.props;
+    const { 
+      userInfo, 
+      repos, 
+      starred, 
+      handleSearch, 
+      handleClickRepos, 
+      handleClickStarred 
+    } = this.props;
+    
     return(
       <div className="app">
         <Search handleSearch={ handleSearch } />
         {!!userInfo && <UserInfo userInfo={ userInfo } />}
-        {!!userInfo && <Actions />}
+        {!!userInfo && <Actions 
+          handleClickRepos={ handleClickRepos } 
+          handleClickStarred={ handleClickStarred } 
+        />}
         {!!repos.length && 
           <Repos 
             className='repos' 
