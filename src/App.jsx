@@ -18,6 +18,7 @@ class App extends React.Component {
     const keyCode = e.which || e.keyCode;
     const ENTER = 13;
     if (keyCode === ENTER) {
+      e.target.disabled = true;
       axios.get(`https://api.github.com/users/${value}`)
         .then(({ data: { name, avatar_url, login, public_repos, followers, following} }) => {
           this.setState({
@@ -32,6 +33,9 @@ class App extends React.Component {
             repos: [],
             starred: [],
           })
+        })
+        .finally(() => {
+          e.target.disabled = false;
         })
     }
   }
