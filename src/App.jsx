@@ -6,6 +6,9 @@ class App extends React.Component {
   constructor() {
     super()
 
+    this.handleSearch = this.handleSearch.bind(this)
+    this.handleClickRepos = this.handleClickRepos.bind(this)
+
     this.state = {
       userInfo: null,
       repos: [],
@@ -56,14 +59,10 @@ class App extends React.Component {
   }
 
   render() {
-    const { userInfo, repos, starred } = this.state;
     return (
       <AppContent 
-        userInfo={ userInfo }
-        repos={ repos }
-        starred={ starred }
-        isFetching={ this.state.isFetching }
-        handleSearch={ (e) => this.handleSearch(e) }
+        {...this.state}
+        handleSearch={ this.handleSearch }
         handleClickRepos={ this.handleClickRepos('repos') }
         handleClickStarred={ this.handleClickRepos('starred') }
       />
