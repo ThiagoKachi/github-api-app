@@ -8,9 +8,9 @@ class Repos extends React.Component {
       <div className={ className }>
         <h2>{ title }</h2>
         <ul>
-          {repos.map(({ link, name }) => (
-              <li key={ link }> 
-                <a href={ link }>{ name }</a> 
+          {repos.map(({ id, html_url, name }) => (
+              <li key={ id }> 
+                <a href={ html_url }>{ name }</a> 
               </li>
           ))}
         </ul>

@@ -8,7 +8,6 @@ class Search extends React.Component {
       <div className="search">
         <input 
           type="search" 
-          name="" 
           placeholder="Digite o nome do usuários do Github" 
           onKeyUp={ handleSearch }
         />

@@ -34,6 +34,26 @@ class App extends React.Component {
     }
   }
 
+  handleClickRepos() {
+    const value = this.state.userInfo.login;
+    axios.get(`https://api.github.com/users/${value}/repos`)
+      .then(({ data }) => {
+        this.setState({
+          repos: data
+        })
+      })
+  }
+
+  handleClickStarred() {
+    const value = this.state.userInfo.login;
+    axios.get(`https://api.github.com/users/${value}/starred`)
+      .then(({ data }) => {
+        this.setState({
+          starred: data
+        })
+      })
+  }
+
   render() {
     const { userInfo, repos, starred } = this.state;
     return (
@@ -42,6 +62,8 @@ class App extends React.Component {
         repos={ repos }
         starred={ starred }
         handleSearch={ (e) => this.handleSearch(e) }
+        handleClickRepos={ (e) => this.handleClickRepos() }
+        handleClickStarred={ (e) => this.handleClickStarred() }
       />
     )
   }

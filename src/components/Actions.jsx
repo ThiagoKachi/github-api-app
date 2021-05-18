@@ -2,10 +2,11 @@ import React from 'react';
 
 class Actions extends React.Component {
   render() {
+    const { handleClickRepos, handleClickStarred } = this.props;
     return(
       <div className="actions">
-        <button>Ver Repositórios</button>
-        <button>Ver Favoritos</button>
+        <button onClick={ handleClickRepos }>Ver Repositórios</button>
+        <button onClick={ handleClickStarred }>Ver Favoritos</button>
       </div>
     )
   }
