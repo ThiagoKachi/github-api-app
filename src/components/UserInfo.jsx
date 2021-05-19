@@ -7,7 +7,7 @@ class UserInfo extends React.Component {
     return(
       <div className="userInfo">
         <img src={ photo } alt="Thiago" />
-        <h1 className="userName">
+        <h1>
           <a href={`https://github.com/${ login }`}>{ username }</a> 
         </h1>
 

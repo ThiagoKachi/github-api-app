@@ -18,28 +18,33 @@ class AppContent extends React.Component {
     } = this.props;
     
     return(
-      <div className="app">
-        <Search isDisabled={ isFetching } handleSearch={ handleSearch } />
-        {isFetching && <div>Carregando...</div>}
-        {!!userInfo && <UserInfo userInfo={ userInfo } />}
-        {!!userInfo && <Actions 
-          handleClickRepos={ handleClickRepos } 
-          handleClickStarred={ handleClickStarred } 
-        />}
-        {!!repos.length && 
-          <Repos 
-            className='repos' 
-            title='Repositórios' 
-            repos={ repos }
-          />
-        }
-        {!!starred.length && 
-          <Repos 
-            className='starred' 
-            title='Favoritos' 
-            repos={ starred }
-          />
-        }
+      <div className="user-infos-repos">
+        <div className="app">
+          <h1>Busque um usuário do Github</h1>
+          <Search isDisabled={ isFetching } handleSearch={ handleSearch } />
+          {isFetching && <div className="loading"></div>}
+          {!!userInfo && <UserInfo userInfo={ userInfo } />}
+          {!!userInfo && <Actions 
+            handleClickRepos={ handleClickRepos } 
+            handleClickStarred={ handleClickStarred } 
+          />}
+        </div>
+        <div className="repos-starred">
+          {!!repos.length && 
+            <Repos 
+              className='repos' 
+              title='Repositórios' 
+              repos={ repos }
+            />
+          }
+          {!!starred.length && 
+            <Repos 
+              className='starred' 
+              title='Favoritos' 
+              repos={ starred }
+            />
+          }
+        </div>
       </div>
     )
   }

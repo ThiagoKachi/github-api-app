@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  padding: 3% 5%;
+  background: rgb(230, 246, 255);
+}
+
+.app h1 {
+  margin-left: 50px;
+  margin-bottom: 20px;
+}
+
+.search input {
+  width: 550px;
+  height: 40px;
+  margin-left: 50px;
+  border: 1px solid lightgray;
+  border-radius: 6px;
+  padding: 8px;
+  font-size: 16px;
+  margin-bottom: 30px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.userInfo {
+  margin-left: 50px;
+}
+
+.userInfo img {
+  width: 200px;
+  border-radius: 50%;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.userInfo h1 {
+  margin-top: 20px;
+}
+
+.userInfo h1 a {
+  font-size: 36px;
+  text-decoration: none;
+  color: rgb(65, 65, 65);
+}
+
+.repos-info {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.repos-info li {
+  list-style: none;
+  margin-bottom: 15px;
+  font-size: 18px;
+
+  border-bottom: 1px solid lightgray;
+  width: 550px;
+}
+
+.actions button {
+  margin-left: 50px;
+  margin-top: 20px;
+  width: 244px;
+  padding: 10px;
+
+  font-size: 18px;
+  border-radius: 6px;
+  border: 1px solid lightgray;
+  color: rgb(75, 75, 75);
+  cursor: pointer;
+}
+
+.actions button:hover {
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 300ms;
+} 
+
+.user-infos-repos {
+  display: flex;
+  justify-content: space-around;
+}
+
+.repos-starred {
+  display: flex;
+  margin-left: 50px;
+}
+
+.repos-starred .repos h2,
+.repos-starred .starred h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.repos-starred .repos li,
+.repos-starred .starred li {
+  list-style: none;
+  margin-bottom: 5px;
+}
+
+.repos-starred .repos a,
+.repos-starred .starred a {
+  font-size: 17px;
+  text-decoration: none;
+}
+
+.repos-starred .repos a:visited,
+.repos-starred .starred a:visited  {
+  color: blue;
+}
+
+.repos-starred .starred {
+  margin-left: 200px;
+}
+
+.loading {
+  margin-left: 250px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  
+  border: 8px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #22a6b3;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
